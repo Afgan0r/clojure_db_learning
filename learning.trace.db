@@ -1,0 +1,193 @@
+2019-12-30 13:47:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "
+
+CREATE TABLE STUDENTS(
+ID_STUDENT INT AUTO_INCREMENT PRIMARY KEY,
+FIRST_NAME VARCHAR(32),
+LAST_NAME VARCHAR(32),
+AGE INT,
+EMAIL VARCHAR(255)
+GROUP_ID[*] INT,
+FOREIGN KEY (GROUP_ID) REFERENCES GROUPS (ID_GROUP)
+);
+
+CREATE TABLE GROUPS(
+ID_GROUP INT AUTO_INCREMENT PRIMARY KEY
+CURATOR_NAME VARCHAR (32),
+GROUP_NAME VARCHAR(10));
+ "; expected "FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+
+
+CREATE TABLE Students(
+id_student INT AUTO_INCREMENT PRIMARY KEY,
+first_name varchar(32),
+last_name varchar(32),
+age int,
+email varchar(255)
+group_id int,
+FOREIGN KEY (group_id) REFERENCES Groups (id_group)
+);
+
+CREATE TABLE Groups(
+id_group INT AUTO_INCREMENT PRIMARY KEY
+curator_name varchar (32),
+group_name varchar(10));
+ [42001-199]
+2019-12-30 13:49:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "
+
+CREATE TABLE STUDENTS(
+ID_STUDENT INT AUTO_INCREMENT PRIMARY KEY,
+FIRST_NAME VARCHAR(32),
+LAST_NAME VARCHAR(32),
+AGE INT,
+EMAIL VARCHAR(255)
+GROUP_ID[*] INT,
+FOREIGN KEY (GROUP_ID) REFERENCES GROUPS (ID_GROUP)
+);
+
+CREATE TABLE GROUPS(
+ID_GROUP INT AUTO_INCREMENT PRIMARY KEY,
+CURATOR_NAME VARCHAR (32),
+GROUP_NAME VARCHAR(10)
+);
+ "; expected "FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+
+
+CREATE TABLE Students(
+id_student INT AUTO_INCREMENT PRIMARY KEY,
+first_name varchar(32),
+last_name varchar(32),
+age int,
+email varchar(255)
+group_id int,
+FOREIGN KEY (group_id) REFERENCES Groups (id_group)
+);
+
+CREATE TABLE Groups(
+id_group INT AUTO_INCREMENT PRIMARY KEY,
+curator_name varchar (32),
+group_name varchar(10)
+);
+ [42001-199]
+2019-12-30 13:49:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "
+
+CREATE TABLE STUDENTS(
+ID_STUDENT INT AUTO_INCREMENT PRIMARY KEY,
+FIRST_NAME VARCHAR(32),
+LAST_NAME VARCHAR(32),
+AGE INT,
+EMAIL VARCHAR(255)
+GROUP_ID[*] INT,
+FOREIGN KEY (GROUP_ID) REFERENCES GROUPS (ID_GROUP)
+);
+
+CREATE TABLE GROUPS(
+ID_GROUP INT AUTO_INCREMENT PRIMARY KEY,
+CURATOR_NAME VARCHAR(32),
+GROUP_NAME VARCHAR(10)
+);
+ "; expected "FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+
+
+CREATE TABLE Students(
+id_student INT AUTO_INCREMENT PRIMARY KEY,
+first_name varchar(32),
+last_name varchar(32),
+age int,
+email varchar(255)
+group_id int,
+FOREIGN KEY (group_id) REFERENCES Groups (id_group)
+);
+
+CREATE TABLE Groups(
+id_group INT AUTO_INCREMENT PRIMARY KEY,
+curator_name varchar(32),
+group_name varchar(10)
+);
+ [42001-199]
+2019-12-30 13:50:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "GROUPS" not found; SQL statement:
+
+DROP TABLE IF EXISTS Students; [42102-199]
+2019-12-30 13:51:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "
+
+CREATE TABLE GROUPS (
+ID_GROUP INT AUTO_INCREMENT PRIMARY KEY
+CURATOR_NAME[*] VARCHAR (32)                    
+GROUP_NAME VARCHAR (10)
+);
+
+CREATE TABLE STUDENTS(
+ID_STUDENT INT AUTO_INCREMENT PRIMARY KEY,
+FIRST_NAME VARCHAR(32),
+LAST_NAME VARCHAR(32),
+AGE INT,
+EMAIL VARCHAR(255),
+GROUP_ID INT,
+FOREIGN KEY (GROUP_ID) REFERENCES GROUPS (ID_GROUP)
+);
+ "; expected "HASH, AUTO_INCREMENT, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+
+
+CREATE TABLE Groups (
+id_group INT AUTO_INCREMENT PRIMARY KEY
+curator_name varchar (32)                    
+group_name varchar (10)
+);
+
+CREATE TABLE Students(
+id_student INT AUTO_INCREMENT PRIMARY KEY,
+first_name varchar(32),
+last_name varchar(32),
+age int,
+email varchar(255),
+group_id int,
+FOREIGN KEY (group_id) REFERENCES Groups (id_group)
+);
+ [42001-199]
+2019-12-30 13:53:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO Students (first_name, last_name, age, email) VALUES (?, ?, ?, ?, ?), (?, ?, ?, ?, ?) [21002-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:451)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.dml.Insert.prepare(Insert.java:314)
+	at org.h2.command.Parser.prepareCommand(Parser.java:689)
+	at org.h2.engine.Session.prepareLocal(Session.java:627)
+	at org.h2.engine.Session.prepareCommand(Session.java:565)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1292)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:77)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:349)
+	at next.jdbc.prepare$create.invokeStatic(prepare.clj:128)
+	at next.jdbc.prepare$create.invoke(prepare.clj:78)
+	at next.jdbc.result_set$eval1473$fn__1481.invoke(result_set.clj:624)
+	at next.jdbc.protocols$eval797$fn__828$G__788__837.invoke(protocols.clj:33)
+	at next.jdbc$execute_BANG_.invokeStatic(jdbc.clj:199)
+	at next.jdbc$execute_BANG_.invoke(jdbc.clj:189)
+	at learning_db.core$add_groups_and_students.invokeStatic(core.clj:48)
+	at learning_db.core$add_groups_and_students.invoke(core.clj:34)
+	at user$create_and_fill_database.invokeStatic(user.clj:6)
+	at user$create_and_fill_database.invoke(user.clj:4)
+	at user$eval3245.invokeStatic(NO_SOURCE_FILE:1)
+	at user$eval3245.invoke(NO_SOURCE_FILE:1)
+	at clojure.lang.Compiler.eval(Compiler.java:7177)
+	at clojure.lang.Compiler.eval(Compiler.java:7132)
+	at clojure.core$eval.invokeStatic(core.clj:3214)
+	at clojure.core$eval.invoke(core.clj:3210)
+	at clojure.main$repl$read_eval_print__9086$fn__9089.invoke(main.clj:437)
+	at clojure.main$repl$read_eval_print__9086.invoke(main.clj:437)
+	at clojure.main$repl$fn__9095.invoke(main.clj:458)
+	at clojure.main$repl.invokeStatic(main.clj:458)
+	at clojure.main$repl_opt.invokeStatic(main.clj:522)
+	at clojure.main$main.invokeStatic(main.clj:667)
+	at clojure.main$main.doInvoke(main.clj:616)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.RestFn.applyTo(RestFn.java:132)
+	at clojure.lang.Var.applyTo(Var.java:705)
+	at clojure.main.main(main.java:40)
